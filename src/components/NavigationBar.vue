@@ -4,19 +4,29 @@
       <a-menu theme="light">
         <a-menu-item key="1">
           <appstore-outlined />
-          <span class="nav-text">Dashboard</span>
+          <span class="nav-text">
+            <router-link to="/">
+              <a-typography-text strong> Dashboard </a-typography-text>
+            </router-link>
+          </span>
         </a-menu-item>
         <a-menu-item key="2">
           <pushpin-outlined />
-          <span class="nav-text">Todo</span>
+          <span class="nav-text">
+            <router-link to="/todo">Todo</router-link>
+          </span>
         </a-menu-item>
         <a-menu-item key="3">
           <cloud-outlined />
-          <span class="nav-text">Weather</span>
+          <span class="nav-text">
+            <router-link to="/weather">Weather</router-link>
+          </span>
         </a-menu-item>
         <a-menu-item key="4">
           <user-outlined />
-          <span class="nav-text">Profile</span>
+          <span class="nav-text">
+            <router-link to="/profile">Profile</router-link>
+          </span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
@@ -31,7 +41,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { RouterView } from 'vue-router';
+import { RouterView, RouterLink } from 'vue-router';
 import {
   UserOutlined,
   CloudOutlined,
@@ -45,7 +55,8 @@ export default defineComponent({
     CloudOutlined,
     PushpinOutlined,
     AppstoreOutlined,
-    RouterView
+    RouterView,
+    RouterLink
   },
   setup() {
     const isCollapsed = ref<boolean>(false);
