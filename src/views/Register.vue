@@ -1,6 +1,14 @@
 <template>
   <a-row justify="center">
-    <custom-form layout="vertical" :items="items" />
+    <a-col :span="6">
+      <custom-form
+        layout="vertical"
+        :items="items"
+        :buttonText="buttonText"
+        :directionText="directionText"
+        :directionLink="directionLink"
+      />
+    </a-col>
   </a-row>
 </template>
 
@@ -17,20 +25,27 @@ export default defineComponent({
     const items = [
       {
         label: 'Name',
-        size: 'lg',
+        size: 'large',
         type: 'text'
       },
       {
         label: 'Email',
-        size: 'lg',
+        size: 'large',
         type: 'text'
       },
       {
         label: 'Password',
-        size: 'lg',
+        size: 'large',
         type: 'password'
       }
     ];
+    const buttonText = 'Register';
+    const directionText = 'Do you already have an account?';
+    const directionLink = {
+      text: 'Login',
+      path: '/login'
+    };
+
     interface FormState {
       name: string;
       email: string;
@@ -43,7 +58,10 @@ export default defineComponent({
     });
     return {
       formState,
-      items
+      items,
+      buttonText,
+      directionText,
+      directionLink
     };
   }
 });
